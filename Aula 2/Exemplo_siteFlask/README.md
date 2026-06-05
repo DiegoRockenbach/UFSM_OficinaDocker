@@ -1,4 +1,4 @@
-## Créditos desse exemplo à https://github.com/larcc-group/escola-inverno-2022-docker/tree/main/1.site-flask
+## Créditos desse exemplo à Dinei Rockenbach e ao grupo Larcc: <br> https://github.com/larcc-group/escola-inverno-2022-docker/tree/main/1.site-flask
 
 # Exemplo de site simples usando Flask
 
@@ -13,7 +13,6 @@ Abaixo vamos ver como:
 Primeiramente, execute o container com a imagem do Python, permitindo que ele acesse a pasta com o arquivo `app.py`. Esse acesso é fornecido através da flag `-v`, onde você deve passar o caminho da pasta atual. Por exemplo, se o projeto está na pasta C:/Projetos/1.site-flask, você deve trocar `-v <pasta>:/home` no comando abaixo por `-v "C:/Projetos/1.site-flask:/home"`.
 
 ```bash
-# Troque a <pasta> pelo caminho da pasta atual
 docker run -it -v "<pasta>:/home" -w /home -p 5000:5000 python:3.7-alpine /bin/sh
 ```
 
