@@ -1,0 +1,9 @@
+services:
+  web:
+    container_name: container-site
+    build: .
+    ports:
+      - "8000:5000"
+  redis:
+    container_name: container-redis
+    image: "redis:7.0-alpine"

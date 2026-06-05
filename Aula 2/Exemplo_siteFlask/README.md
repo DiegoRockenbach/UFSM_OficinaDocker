@@ -1,3 +1,5 @@
+## Créditos desse exemplo à https://github.com/larcc-group/escola-inverno-2022-docker/tree/main/1.site-flask
+
 # Exemplo de site simples usando Flask
 
 Este é um exemplo de site simples usando o Flask. O código do website usando Flask está no arquivo [`app.py`](app.py). Ele simplesmente renderiza o template HTML do arquivo [`index.html`](templates/index.html).
