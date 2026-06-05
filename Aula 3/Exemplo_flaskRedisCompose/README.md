@@ -1,4 +1,4 @@
-## Créditos desse exemplo à https://github.com/larcc-group/escola-inverno-2022-docker/tree/main/2.flask-redis-compose
+## Créditos desse exemplo à Dinei Rockenbach e ao grupo Larcc: <br> https://github.com/larcc-group/escola-inverno-2022-docker/tree/main/2.flask-redis-compose
 
 # Exemplo de Docker Compose usando Flask e Redis
 
