@@ -254,7 +254,7 @@
   <!-- 01 — COVER -->
   <section data-label="Capa">
     <div class="slide cover">
-      <div class="prompt anim">~/oficina $ docker container run --aula 2<span class="cursor"></span></div>
+      <div class="prompt anim">~/oficina $ docker run --aula 2<span class="cursor"></span></div>
       <h1 class="anim d1">Trabalhando com containers</h1>
       <p class="lede anim d2">Aula 2 — gerenciando containers pela linha de comando, atividade prática com Flask e imagens Docker vistas a fundo.</p>
     </div>
@@ -329,7 +329,7 @@
           <div class="card" style="border-color:var(--blue-dim);">
             <div class="ci">// docs oficiais</div>
             <h3 style="font-size:32px; margin-bottom:18px;">docs.docker.com</h3>
-            <p style="font-size:26px; line-height:1.5; margin-bottom:24px;">Referência completa de cada comando, flag e comportamento</p>
+            <p style="font-size:26px; line-height:1.5; margin-bottom:24px;">Referência completa de cada comando e flag de container</p>
             <p class="mono" style="font-size:24px; color:var(--blue-2); word-break:break-all;"><a href="https://docs.docker.com/reference/cli/docker/container/" target="_blank" style="text-decoration:none; color:inherit;">https://docs.docker.com/reference/cli/docker/container/</a></p>
           </div>
         </div>
@@ -459,9 +459,10 @@
     <div class="slide divider">
       <div class="num">03</div>
       <div class="sec-name">Como funcionam as imagens</div>
-      <div class="sec-sub">Camadas empilhadas, uma camada gravável e muito reuso.</div>
+      <div class="sec-sub">Camadas empilhadas... tipo cebolas</div>
       <div class="bar"></div>
     </div>
+    <img src="slide11-camadasCebola.jpeg" alt="Ilustração de camadas de imagem Docker." style="position:absolute; right:var(--pad-x); top:50%; transform:translateY(-50%); height:500px; width:auto; opacity:0.92;">
     <div class="foot">
       <div class="l"><span class="dot" style="width:9px;height:9px;background:var(--blue);border-radius:2px;display:inline-block;"></span> UFSM · Tecnologia da Informação</div>
       <div>@DiegoRockenbach · oficina-docker · aula 02</div>
@@ -537,8 +538,8 @@
       <div class="grow"></div>
       <div class="act-box">
         <div class="al">// tarefa</div>
-        <p>Suba o container <span class="mono blue">docker/getting-started:vscode</span>, depois rode a app <b>Flask</b> mapeando o código com <span class="mono">-v</span> e faça uma alteração visível na página enquanto o container está no ar.</p>
-        <div class="deliver"><span class="pin"></span> entregar: print do navegador + o comando <span class="mono">run</span> usado</div>
+        <<p>Suba o container <span class="mono blue">docker/getting-started:vscode</span>, depois rode a app <b>Flask</b> mapeando o código com <span class="mono">-v</span> e faça uma alteração visível na página enquanto o container está no ar.</p>
+        <div class="deliver"><span class="pin"></span> entregar: print do navegador + o comando <span class="mono">run</span> usado</div>>
       </div>
       <div class="grow"></div>
     </div>

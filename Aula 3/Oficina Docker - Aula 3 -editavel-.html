@@ -254,9 +254,9 @@
   <!-- 01 — COVER -->
   <section data-label="Capa">
     <div class="slide cover">
-      <div class="prompt anim">~/oficina $ docker image build --aula 3<span class="cursor"></span></div>
+      <div class="prompt anim">~/oficina $ docker run --aula 3<span class="cursor"></span></div>
       <h1 class="anim d1">Construindo imagens</h1>
-      <p class="lede anim d2">Aula 3 — os comandos de imagem, empacotar a app Flask num Dockerfile e enviar tudo para um repositório.</p>
+      <p class="lede anim d2">Aula 3 — trabalhando com imagens Docker e simplificando atividade prática com Flask com uso de Dockerfile</p>
     </div>
     <div class="foot">
       <div class="l"><span class="dot" style="width:9px;height:9px;background:var(--blue);border-radius:2px;display:inline-block;"></span> UFSM · Tecnologia da Informação</div>
@@ -271,10 +271,9 @@
       <h2 class="title">Roteiro de hoje</h2>
       <div class="grow"></div>
       <div class="roadmap">
-        <div class="road-item"><span class="rn">01</span><span class="rt">Comandos de imagem</span><span class="rd">ls, build, rm, pull e push</span></div>
-        <div class="road-item"><span class="rn">02</span><span class="rt">Flask com Dockerfile</span><span class="rd">empacotar a aplicação na própria imagem</span></div>
-        <div class="road-item"><span class="rn">03</span><span class="rt">Dentro vs. fora</span><span class="rd">por que agora editar o host não muda nada</span></div>
-        <div class="road-item"><span class="rn">04</span><span class="rt">Atividade</span><span class="rd">o que você vai entregar desta aula</span></div>
+        <div class="road-item"><span class="rn">01</span><span class="rt">Principais comandos para trabalhar com imagens</span><span class="rd">ls, build, rm, pull e push</span></div>
+        <div class="road-item"><span class="rn">02</span><span class="rt">Revisitando atividade prática: Flask com Dockerfile</span><span class="rd">empacotar a aplicação na própria imagem</span></div>
+        <div class="road-item"><span class="rn">03</span><span class="rt">Atividade</span><span class="rd">o que você vai entregar desta aula</span></div>
       </div>
       <div class="grow"></div>
     </div>
@@ -285,7 +284,7 @@
     <div class="slide divider">
       <div class="num">01</div>
       <div class="sec-name">Comandos de imagem</div>
-      <div class="sec-sub">Listar, construir, remover e mover imagens entre repositórios.</div>
+      <div class="sec-sub">Listar, construir, remover e subir imagens Docker.</div>
       <div class="bar"></div>
     </div>
     <div class="foot">
@@ -305,14 +304,42 @@
         <div class="cmd-row"><span class="cc">docker image build <span class="ar">&lt;pasta&gt;</span> <span class="fl">-t</span> <span class="ar">&lt;tag&gt;</span></span><span class="cdesc"><b>Constrói</b> uma imagem a partir de um Dockerfile.</span></div>
         <div class="cmd-row"><span class="cc">docker image rm <span class="ar">&lt;imagem&gt;</span></span><span class="cdesc"><b>Remove</b> uma imagem do repositório local.</span></div>
         <div class="cmd-row"><span class="cc">docker image pull <span class="ar">&lt;imagem&gt;</span></span><span class="cdesc"><b>Baixa</b> de um repositório remoto — implícito no <span class="mono">run</span>.</span></div>
-        <div class="cmd-row"><span class="cc">docker image push <span class="ar">&lt;imagem&gt;</span></span><span class="cdesc"><b>Envia</b> uma imagem local para um repositório remoto.</span></div>
+        <div class="cmd-row"><span class="cc">docker image push <span class="ar">&lt;imagem&gt;</span></span><span class="cdesc"><b>Envia</b> uma imagem local para um repositório remoto — geralmente o Dockerhub.</span></div>
+        <div class="cmd-row"><span class="cc">docker image tag <span class="ar">&lt;nome_imagem&gt;</span> <span class="ar">&lt;novo_nome&gt;</span></span><span class="cdesc"><b>Cria</b> uma nova tag para uma imagem existente — útil para versionamento e envio ao Dockerhub.</span></div>
       </div>
       <p class="small" style="margin-top:30px; font-size:25px; color:var(--faint);">* a parte de <span class="mono">docker compose</span> fica para a próxima aula.</p>
       <div class="grow"></div>
     </div>
   </section>
 
-  <!-- 05 — build na prática -->
+  <!-- 05 — Documentação oficial -->
+  <section data-label="Documentação oficial">
+    <div class="slide">
+      <div class="eyebrow"><span class="dot"></span>// vai fundo se quiser</div>
+      <h2 class="title">Há muito mais por aí</h2>
+      <div class="grow"></div>
+      <div class="row items-center" style="gap:90px;">
+        <div style="flex:1.1;">
+          <div class="points">
+            <div class="point"><span class="k">→</span><span class="pt"><b>Mais comandos</b> — <span class="mono">docker image inspect</span>, <span class="mono">history</span>, <span class="mono">save</span>, <span class="mono">load</span>, <span class="mono">prune</span>…</span></div>
+            <div class="point"><span class="k">→</span><span class="pt"><b>Mais flags</b> — <span class="mono">--no-cache</span>, <span class="mono">--platform</span>, <span class="mono">--build-arg</span>…</span></div>
+            <div class="point"><span class="k">→</span><span class="pt">O importante é saber onde buscar quando precisar.</span></div>
+          </div>
+        </div>
+        <div style="flex:0.85;">
+          <div class="card" style="border-color:var(--blue-dim);">
+            <div class="ci">// docs oficiais</div>
+            <h3 style="font-size:32px; margin-bottom:18px;">docs.docker.com</h3>
+            <p style="font-size:26px; line-height:1.5; margin-bottom:24px;">Referência completa de cada comando e flag de imagem</p>
+            <p class="mono" style="font-size:24px; color:var(--blue-2); word-break:break-all;"><a href="https://docs.docker.com/reference/cli/docker/image/" target="_blank" style="text-decoration:none; color:inherit;">https://docs.docker.com/reference/cli/docker/image/</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="grow"></div>
+    </div>
+  </section>
+
+  <!-- 06 — build na prática -->
   <section data-label="build na prática">
     <div class="slide">
       <div class="eyebrow"><span class="dot"></span>// construir</div>
@@ -340,7 +367,7 @@ REPOSITORY   TAG   SIZE
     </div>
   </section>
 
-  <!-- 06 — push / pull -->
+  <!-- 07 — push / pull -->
   <section data-label="push e pull">
     <div class="slide">
       <div class="eyebrow"><span class="dot"></span>// distribuir</div>
@@ -371,12 +398,42 @@ REPOSITORY   TAG   SIZE
     </div>
   </section>
 
-  <!-- 07 — DIVIDER 02 -->
+  <!-- 08 — docker image tag -->
+  <section data-label="docker image tag">
+    <div class="slide">
+      <div class="eyebrow"><span class="dot"></span>// ponteiros, não cópias</div>
+      <h2 class="title">Como funciona o <span class="mono">image tag</span></h2>
+      <div class="grow"></div>
+      <div class="row items-center" style="gap:70px;">
+        <div style="flex:1.05;">
+          <div class="code lg" style="width:100%;">
+            <div class="bar"><span class="d" style="background:#ED6A5E;"></span><span class="d" style="background:#F5BF4F;"></span><span class="d" style="background:#62C554;"></span><span class="fname">terminal</span></div>
+            <pre><span class="cm"># cria uma nova tag apontando para a mesma imagem</span>
+<span class="pp">$</span> <span class="kw">docker</span> image tag <span class="st">meu-app:v1</span> <span class="st">meu-app:latest</span>
+
+<span class="cm"># resultado de docker image ls:</span>
+<span class="cm"># REPOSITORY   TAG      IMAGE ID       SIZE</span>
+<span class="cm"># meu-app      v1       a1b2c3d4e5f6   150 MB</span>
+<span class="cm"># meu-app      latest   a1b2c3d4e5f6   150 MB</span></pre>
+          </div>
+        </div>
+        <div style="flex:0.75;">
+          <div class="points">
+            <div class="point"><span class="k">→</span><span class="pt"><span class="mono">tag</span> <b>não renomeia</b> a imagem — cria um novo ponteiro <span class="blue">(nova tag)</span> para o mesmo <span class="mono">IMAGE ID</span>.</span></div>
+            <div class="point"><span class="k">→</span><span class="pt">As duas tags ocupam o <b>mesmo espaço</b> em disco — nenhuma cópia é feita.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="grow"></div>
+    </div>
+  </section>
+
+  <!-- 09 — DIVIDER 02 -->
   <section data-label="Seção 02">
     <div class="slide divider">
       <div class="num">02</div>
       <div class="sec-name">Flask com Dockerfile</div>
-      <div class="sec-sub">A mesma app de antes — agora empacotada na própria imagem.</div>
+      <div class="sec-sub">Revisitando a atividade da aula passada — criando nossa própria imagem.</div>
       <div class="bar"></div>
     </div>
     <div class="foot">
@@ -385,34 +442,7 @@ REPOSITORY   TAG   SIZE
     </div>
   </section>
 
-  <!-- 08 — Dockerfile do Flask -->
-  <section data-label="Dockerfile do Flask">
-    <div class="slide">
-      <div class="eyebrow"><span class="dot"></span>// a receita</div>
-      <h2 class="title">O Dockerfile da nossa app</h2>
-      <div class="grow"></div>
-      <div class="row items-center" style="gap:70px;">
-        <div style="flex:1;">
-          <div class="code lg" style="width:100%;">
-            <div class="bar"><span class="d" style="background:#ED6A5E;"></span><span class="d" style="background:#F5BF4F;"></span><span class="d" style="background:#62C554;"></span><span class="fname">Dockerfile</span></div>
-            <pre><span class="kw">FROM</span> <span class="st">python:3.12-slim</span>
-<span class="kw">WORKDIR</span> /app
-<span class="kw">COPY</span> requirements.txt .
-<span class="kw">RUN</span> pip install -r requirements.txt
-<span class="kw">COPY</span> . .
-<span class="kw">CMD</span> [<span class="tg">"flask"</span>, <span class="tg">"run"</span>, <span class="tg">"--host=0.0.0.0"</span>]</pre>
-          </div>
-        </div>
-        <div style="flex:0.8;">
-          <p class="body" style="font-size:32px; max-width:30ch;">Copiamos o <span class="mono">requirements</span> <span class="blue">antes</span> do código.</p>
-          <p class="small" style="margin-top:22px; font-size:27px; max-width:34ch;">Assim, mudar o código não invalida a camada do <span class="mono">pip install</span> — o build reaproveita e fica muito mais rápido.</p>
-        </div>
-      </div>
-      <div class="grow"></div>
-    </div>
-  </section>
-
-  <!-- 09 — Dentro vs fora -->
+  <!-- 10 — Dentro vs fora -->
   <section data-label="Dentro vs fora">
     <div class="slide">
       <div class="eyebrow"><span class="dot"></span>// a diferença</div>
@@ -422,12 +452,12 @@ REPOSITORY   TAG   SIZE
         <div style="flex:1;">
           <div class="code lg" style="width:100%;">
             <div class="bar"><span class="d" style="background:#ED6A5E;"></span><span class="d" style="background:#F5BF4F;"></span><span class="d" style="background:#62C554;"></span><span class="fname">terminal</span></div>
-            <pre><span class="cm"># sem volume: a imagem já contém o código</span>
+            <pre><span class="cm"># sem volume (flag -v): a imagem já contém o código</span>
 <span class="pp">$</span> <span class="kw">docker</span> container run <span class="fl">-d -p</span> <span class="tg">5000:5000</span> <span class="st">meu-flask:1.0</span>
 
-<span class="cm"># editar o arquivo no host... não muda nada!</span>
+<span class="cm"># editar o arquivo no host não muda nada</span>
 <span class="cm"># para ver mudança, entre no container:</span>
-<span class="pp">$</span> <span class="kw">docker</span> container exec <span class="fl">-it</span> <span class="st">&lt;id&gt;</span> bash</pre>
+<span class="pp">$</span> <span class="kw">docker</span> container exec <span class="fl">-it</span> <span class="st">&lt;id&gt;</span> sh</pre>
           </div>
         </div>
         <div style="flex:0.8;">
@@ -439,7 +469,7 @@ REPOSITORY   TAG   SIZE
     </div>
   </section>
 
-  <!-- 10 — ATIVIDADE -->
+  <!-- 11 — ATIVIDADE -->
   <section data-label="Atividade">
     <div class="slide activity">
       <div class="act-tag">▸ ATIVIDADE · AULA 3</div>

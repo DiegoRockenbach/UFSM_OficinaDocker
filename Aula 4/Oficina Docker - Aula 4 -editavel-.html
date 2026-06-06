@@ -254,9 +254,9 @@
   <!-- 01 — COVER -->
   <section data-label="Capa">
     <div class="slide cover">
-      <div class="prompt anim">~/oficina $ docker compose up --aula 4<span class="cursor"></span></div>
+      <div class="prompt anim">~/oficina $ docker run --aula 4<span class="cursor"></span></div>
       <h1 class="anim d1">Orquestrando com Compose</h1>
-      <p class="lede anim d2">Aula 4 — subir uma aplicação inteira, com vários containers, a partir de um único arquivo e um único comando.</p>
+      <p class="lede anim d2">Aula 4 — entendendo Docker Compose: subir uma aplicação inteira, com vários containers, a partir de um único arquivo e um único comando.</p>
     </div>
     <div class="foot">
       <div class="l"><span class="dot" style="width:9px;height:9px;background:var(--blue);border-radius:2px;display:inline-block;"></span> UFSM · Tecnologia da Informação</div>
@@ -272,8 +272,8 @@
       <div class="grow"></div>
       <div class="roadmap">
         <div class="road-item"><span class="rn">01</span><span class="rt">O que é o Compose</span><span class="rd">vários containers, uma aplicação só</span></div>
-        <div class="road-item"><span class="rn">02</span><span class="rt">O arquivo YAML</span><span class="rd">services, rede automática e comandos</span></div>
-        <div class="road-item"><span class="rn">03</span><span class="rt">Mão na massa: Flask + Redis</span><span class="rd">dois serviços conversando entre si</span></div>
+        <div class="road-item"><span class="rn">02</span><span class="rt">Comandos e arquivo YAML</span><span class="rd">services, rede automática e comandos</span></div>
+        <div class="road-item"><span class="rn">03</span><span class="rt">Atividade prática: Flask + Redis</span><span class="rd">dois serviços conversando entre si</span></div>
         <div class="road-item"><span class="rn">04</span><span class="rt">Atividade</span><span class="rd">o que você vai entregar desta aula</span></div>
       </div>
       <div class="grow"></div>
@@ -284,7 +284,7 @@
   <section data-label="Seção 01">
     <div class="slide divider">
       <div class="num">01</div>
-      <div class="sec-name">Docker Compose</div>
+      <div class="sec-name">O que é Docker Compose?</div>
       <div class="sec-sub">Definir e rodar aplicações multi-container com um comando.</div>
       <div class="bar"></div>
     </div>
@@ -300,7 +300,10 @@
       <div class="eyebrow"><span class="dot"></span>// definição</div>
       <h2 class="title">Uma aplicação, vários containers</h2>
       <div class="grow"></div>
-      <p class="body" style="max-width:42ch; font-size:42px; line-height:1.32; color:#D3DEE9;">O <b>Docker Compose</b> define e roda aplicações <span class="blue">multi-container</span>. Com um único comando, ele cria e inicia todos os serviços do seu arquivo de configuração.</p>
+      <blockquote style="border-left:4px solid var(--blue); padding-left:36px; margin:0;">
+        <p class="body" style="max-width:42ch; font-size:42px; line-height:1.32; color:#D3DEE9; font-style:italic;">"<b>Docker Compose</b> é uma ferramenta para definir e rodar aplicações Docker multi-contêineres. [ ... ] com um único comando, você cria e inicia todos os serviços presentes no seu arquivo de configuração."</p>
+        <p class="mono" style="margin-top:18px; font-size:24px; color:var(--faint);"><a href="https://docs.docker.com/compose/" target="_blank" style="text-decoration:none; color:inherit;">— docs.docker.com/compose/</a></p>
+      </blockquote>
       <p class="small" style="margin-top:30px; max-width:50ch; font-size:30px;">Quase toda aplicação real usa mais de um container — um para a API, outro para o banco, outro para o cache. O Compose orquestra todos eles juntos.</p>
       <div class="grow"></div>
     </div>
@@ -348,7 +351,36 @@
     </div>
   </section>
 
-  <!-- 07 — YAML -->
+  <!-- 07 — DIVIDER 02 -->
+  <section data-label="Seção 02">
+    <div class="slide divider">
+      <div class="num">02</div>
+      <div class="sec-name">Configurando Docker Compose</div>
+      <div class="sec-sub">Principais comandos e entendendo o arquivo YAML.</div>
+      <div class="bar"></div>
+    </div>
+    <div class="foot">
+      <div class="l"><span class="dot" style="width:9px;height:9px;background:var(--blue);border-radius:2px;display:inline-block;"></span> UFSM · Tecnologia da Informação</div>
+      <div>@DiegoRockenbach · oficina-docker · aula 04</div>
+    </div>
+  </section>
+
+  <!-- 08 — Comandos do compose -->
+  <section data-label="Comandos do Compose">
+    <div class="slide">
+      <div class="eyebrow"><span class="dot"></span>// referência</div>
+      <h2 class="title">Os comandos do Compose</h2>
+      <div class="grow"></div>
+      <div class="cmdlist">
+        <div class="cmd-row"><span class="cc">docker compose up <span class="fl">-d --build</span></span><span class="cdesc">Constrói, (re)cria e <b>inicia</b> os serviços. <span class="mono">-d</span> em segundo plano; <span class="mono">--build</span> força recompilar.</span></div>
+        <div class="cmd-row"><span class="cc">docker compose down</span><span class="cdesc"><b>Pára e destrói</b> os recursos criados pelo up (exceto volumes permanentes).</span></div>
+        <div class="cmd-row"><span class="cc">docker compose stop</span><span class="cdesc">Apenas <b>pára</b> os serviços iniciados com <span class="mono">up -d</span>, sem destruir.</span></div>
+      </div>
+      <div class="grow"></div>
+    </div>
+  </section>
+
+  <!-- 09 — YAML -->
   <section data-label="O arquivo YAML">
     <div class="slide">
       <div class="eyebrow"><span class="dot"></span>// configuração</div>
@@ -376,27 +408,33 @@
     </div>
   </section>
 
-  <!-- 08 — Comandos do compose -->
-  <section data-label="Comandos do Compose">
+  <!-- 10 — Chaves comuns do Compose -->
+  <section data-label="Chaves comuns do Compose">
     <div class="slide">
-      <div class="eyebrow"><span class="dot"></span>// referência</div>
-      <h2 class="title">Os comandos do Compose</h2>
+      <div class="eyebrow"><span class="dot"></span>// principais opções</div>
+      <h2 class="title">Chaves mais usadas</h2>
       <div class="grow"></div>
       <div class="cmdlist">
-        <div class="cmd-row"><span class="cc">docker compose up <span class="fl">-d --build</span></span><span class="cdesc">Constrói, (re)cria e <b>inicia</b> os serviços. <span class="mono">-d</span> em segundo plano; <span class="mono">--build</span> força recompilar.</span></div>
-        <div class="cmd-row"><span class="cc">docker compose down</span><span class="cdesc"><b>Pára e destrói</b> os recursos criados pelo up (exceto volumes permanentes).</span></div>
-        <div class="cmd-row"><span class="cc">docker compose stop</span><span class="cdesc">Apenas <b>pára</b> os serviços iniciados com <span class="mono">up -d</span>, sem destruir.</span></div>
+        <div class="cmd-row"><span class="cc"><span class="kw">image</span></span><span class="cdesc">Imagem a usar — do registry ou local.</span></div>
+        <div class="cmd-row"><span class="cc"><span class="kw">build</span></span><span class="cdesc">Caminho do Dockerfile para <b>construir</b> a imagem localmente em vez de baixar.</span></div>
+        <div class="cmd-row"><span class="cc"><span class="kw">container_name</span></span><span class="cdesc">Nome fixo para o container — evita nomes aleatórios gerados pelo Compose.</span></div>
+        <div class="cmd-row"><span class="cc"><span class="kw">ports</span></span><span class="cdesc">Mapeamento <span class="mono tg">host:container</span> — expõe a porta do container no host.</span></div>
+        <div class="cmd-row"><span class="cc"><span class="kw">environment</span></span><span class="cdesc">Variáveis de ambiente injetadas no container (<span class="mono">DATABASE_URL</span>, <span class="mono">SECRET_KEY</span>, etc.).</span></div>
+        <div class="cmd-row"><span class="cc"><span class="kw">volumes</span></span><span class="cdesc">Monta pastas do host ou volumes nomeados dentro do container — persiste dados.</span></div>
+        <div class="cmd-row"><span class="cc"><span class="kw">depends_on</span></span><span class="cdesc">Define <b>ordem de inicialização</b> — o serviço só sobe após os listados.</span></div>
       </div>
       <div class="grow"></div>
     </div>
   </section>
 
-  <!-- 09 — DIVIDER 02 -->
-  <section data-label="Seção 02">
+
+
+  <!-- 11 — DIVIDER 03 -->
+  <section data-label="Seção 03">
     <div class="slide divider">
-      <div class="num">02</div>
-      <div class="sec-name">Mão na massa: Flask + Redis</div>
-      <div class="sec-sub">Dois serviços, uma rede e um contador que conversa entre eles.</div>
+      <div class="num">03</div>
+      <div class="sec-name">Atividade prática de Flask + Redis</div>
+      <div class="sec-sub">O clássico: um site e um banco de dados conversando entre si.</div>
       <div class="bar"></div>
     </div>
     <div class="foot">
@@ -405,35 +443,7 @@
     </div>
   </section>
 
-  <!-- 10 — compose flask+redis -->
-  <section data-label="Flask + Redis YAML">
-    <div class="slide">
-      <div class="eyebrow"><span class="dot"></span>// dois serviços</div>
-      <h2 class="title">Flask conversando com Redis</h2>
-      <div class="grow"></div>
-      <div class="row items-center" style="gap:70px;">
-        <div style="flex:1.1;">
-          <div class="code lg" style="width:100%;">
-            <div class="bar"><span class="d" style="background:#ED6A5E;"></span><span class="d" style="background:#F5BF4F;"></span><span class="d" style="background:#62C554;"></span><span class="fname">docker-compose.yml</span></div>
-            <pre><span class="kw">services</span>:
-  <span class="kw">web</span>:
-    <span class="kw">build</span>: .
-    <span class="kw">ports</span>:
-      - <span class="tg">"5000:5000"</span>
-  <span class="kw">redis</span>:
-    <span class="kw">image</span>: <span class="st">redis:7-alpine</span></pre>
-          </div>
-        </div>
-        <div style="flex:0.8;">
-          <p class="body" style="font-size:32px; max-width:30ch;">O código Flask conecta em <span class="mono blue">redis</span> — o nome do serviço.</p>
-          <p class="small" style="margin-top:22px; font-size:27px; max-width:34ch;">Um <span class="mono">docker compose up</span> e os dois sobem, já na mesma rede. A cada visita, o Flask incrementa um contador guardado no Redis.</p>
-        </div>
-      </div>
-      <div class="grow"></div>
-    </div>
-  </section>
-
-  <!-- 11 — redis-cli -->
+  <!-- 12 — redis-cli -->
   <section data-label="redis-cli na prática">
     <div class="slide">
       <div class="eyebrow"><span class="dot"></span>// espiando o estado</div>
@@ -445,11 +455,13 @@
             <div class="bar"><span class="d" style="background:#ED6A5E;"></span><span class="d" style="background:#F5BF4F;"></span><span class="d" style="background:#62C554;"></span><span class="fname">terminal</span></div>
             <pre><span class="cm"># entra no container do redis</span>
 <span class="pp">$</span> <span class="kw">docker</span> compose exec <span class="st">redis</span> redis-cli
+<span class="pp">$</span> <span class="kw">docker</span> container exec <span class="fl">-it</span> <span class="st">container-redis</span> redis-cli
 
 <span class="cm"># lê e zera o contador de visitas</span>
 <span class="pp">redis&gt;</span> GET <span class="st">hits</span>
 <span class="tg">"42"</span>
-<span class="pp">redis&gt;</span> SET <span class="st">hits</span> <span class="tg">0</span></pre>
+<span class="pp">redis&gt;</span> SET <span class="st">hits</span> <span class="tg">66</span>
+<span class="pp">redis&gt;</span> DEL <span class="st">hits</span></pre>
           </div>
         </div>
         <div style="flex:0.8;">
@@ -461,7 +473,7 @@
     </div>
   </section>
 
-  <!-- 12 — ATIVIDADE -->
+  <!-- 13 — ATIVIDADE -->
   <section data-label="Atividade">
     <div class="slide activity">
       <div class="act-tag">▸ ATIVIDADE · AULA 4</div>
