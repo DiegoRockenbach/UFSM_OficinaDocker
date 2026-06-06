@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -256,11 +256,11 @@
     <div class="slide cover">
       <div class="prompt anim">~/oficina $ docker container run --aula 2<span class="cursor"></span></div>
       <h1 class="anim d1">Trabalhando com containers</h1>
-      <p class="lede anim d2">Aula 2 — o ciclo de vida de um container na linha de comando, uma app Flask ao vivo e como as imagens funcionam por dentro.</p>
+      <p class="lede anim d2">Aula 2 — gerenciando containers pela linha de comando, atividade prática com Flask e imagens Docker vistas a fundo.</p>
     </div>
     <div class="foot">
       <div class="l"><span class="dot" style="width:9px;height:9px;background:var(--blue);border-radius:2px;display:inline-block;"></span> UFSM · Tecnologia da Informação</div>
-      <div>oficina-docker · aula 02</div>
+      <div>@DiegoRockenbach · oficina-docker · aula 02</div>
     </div>
   </section>
 
@@ -271,10 +271,10 @@
       <h2 class="title">Roteiro de hoje</h2>
       <div class="grow"></div>
       <div class="roadmap">
-        <div class="road-item"><span class="rn">01</span><span class="rt">Comandos de container</span><span class="rd">run, ls, exec, cp e o ciclo de vida</span></div>
-        <div class="road-item"><span class="rn">02</span><span class="rt">Mão na massa: Flask</span><span class="rd">subir uma app e editá-la ao vivo via volume</span></div>
-        <div class="road-item"><span class="rn">03</span><span class="rt">Como funcionam as imagens</span><span class="rd">camadas, camada gravável e reuso</span></div>
-        <div class="road-item"><span class="rn">04</span><span class="rt">Atividade</span><span class="rd">o que você vai entregar desta aula</span></div>
+        <div class="road-item"><span class="rn">01</span><span class="rt">Principais comandos para trabalhar com containers</span><span class="rd">run, ls, exec, rm</span></div>
+        <div class="road-item"><span class="rn">02</span><span class="rt">Atividade prática: Flask</span><span class="rd">subir uma app e editá-la ao vivo via volume</span></div>
+        <div class="road-item"><span class="rn">03</span><span class="rt">Como funcionam as imagens</span><span class="rd">camadas de imagem e reuso</span></div>
+        <div class="road-item"><span class="rn">04</span><span class="rt">AtividadePLACEHOLDER</span><span class="rd">PLACEHOLDER</span></div>
       </div>
       <div class="grow"></div>
     </div>
@@ -285,12 +285,12 @@
     <div class="slide divider">
       <div class="num">01</div>
       <div class="sec-name">Comandos de container</div>
-      <div class="sec-sub">Criar, listar, inspecionar e controlar o ciclo de vida.</div>
+      <div class="sec-sub">Criar, listar e interagir com containers Docker.</div>
       <div class="bar"></div>
     </div>
     <div class="foot">
       <div class="l"><span class="dot" style="width:9px;height:9px;background:var(--blue);border-radius:2px;display:inline-block;"></span> UFSM · Tecnologia da Informação</div>
-      <div>oficina-docker · aula 02</div>
+      <div>@DiegoRockenbach · oficina-docker · aula 02</div>
     </div>
   </section>
 
@@ -302,16 +302,43 @@
       <div class="grow"></div>
       <div class="cmdlist">
         <div class="cmd-row"><span class="cc">docker container run <span class="ar">&lt;imagem&gt;</span></span><span class="cdesc"><b>Cria e executa</b> um novo container a partir da imagem.</span></div>
-        <div class="cmd-row"><span class="cc">docker container ls <span class="fl">-a</span></span><span class="cdesc">Lista containers <b>em execução</b>; com <span class="mono">-a</span>, inclui os parados.</span></div>
-        <div class="cmd-row"><span class="cc">docker container exec</span><span class="cdesc">Executa um <b>comando dentro</b> de um container em execução.</span></div>
+        <div class="cmd-row"><span class="cc">docker container ls <span class="fl">-a</span></span><span class="cdesc">Lista containers <b>em execução</b>;<br>com flag <span class="mono">-a</span>, inclui os parados.</span></div>
+        <div class="cmd-row"><span class="cc">docker container exec <span class="fl">-it</span></span><span class="cdesc">Executa um <b>comando dentro</b> de um container em execução;<br>com flag <span class="mono">-it</span>, permite interação.</span></div>
         <div class="cmd-row"><span class="cc">docker container cp</span><span class="cdesc">Copia arquivos <b>entre o host e o container</b>.</span></div>
-        <div class="cmd-row"><span class="cc">start <span class="ar">/</span> stop <span class="ar">/</span> kill <span class="ar">/</span> rm</span><span class="cdesc">Inicia, pára, <b>mata</b> e <b>exclui</b> um container já criado.</span></div>
+        <div class="cmd-row"><span class="cc">docker container start <span class="ar">/</span> stop <span class="ar">/</span> kill <span class="ar">/</span> rm</span><span class="cdesc">Inicia, pára, <b>mata</b> e <b>exclui</b> um container já criado.</span></div>
       </div>
       <div class="grow"></div>
     </div>
   </section>
 
-  <!-- 05 — run + ls na prática -->
+  <!-- 05 — Documentação oficial -->
+  <section data-label="Documentação oficial">
+    <div class="slide">
+      <div class="eyebrow"><span class="dot"></span>// vai fundo se quiser</div>
+      <h2 class="title">Há muito mais por aí</h2>
+      <div class="grow"></div>
+      <div class="row items-center" style="gap:90px;">
+        <div style="flex:1.1;">
+          <div class="points">
+            <div class="point"><span class="k">→</span><span class="pt"><b>Dezenas de comandos</b> — <span class="mono">docker container inspect</span>, <span class="mono">rename</span>, <span class="mono">pause</span>, <span class="mono">unpause</span>, <span class="mono">wait</span>, <span class="mono">diff</span>, <span class="mono">export</span>…</span></div>
+            <div class="point"><span class="k">→</span><span class="pt"><b>Centenas de flags</b> — <span class="mono">docker run --rm -d -p --name</span>…</span></div>
+            <div class="point"><span class="k">→</span><span class="pt">Não faz sentido citar tudo aqui, o importante é saber onde buscar quando precisar.</span></div>
+          </div>
+        </div>
+        <div style="flex:0.85;">
+          <div class="card" style="border-color:var(--blue-dim);">
+            <div class="ci">// docs oficiais</div>
+            <h3 style="font-size:32px; margin-bottom:18px;">docs.docker.com</h3>
+            <p style="font-size:26px; line-height:1.5; margin-bottom:24px;">Referência completa de cada comando, flag e comportamento</p>
+            <p class="mono" style="font-size:24px; color:var(--blue-2); word-break:break-all;"><a href="https://docs.docker.com/reference/cli/docker/container/" target="_blank" style="text-decoration:none; color:inherit;">https://docs.docker.com/reference/cli/docker/container/</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="grow"></div>
+    </div>
+  </section>
+
+  <!-- 06 — run + ls na prática -->
   <section data-label="run e ls na prática">
     <div class="slide">
       <div class="eyebrow"><span class="dot"></span>// criar &amp; listar</div>
@@ -332,15 +359,15 @@
           </div>
         </div>
         <div style="flex:0.8;">
+          <p class="small" style="font-size:26px; color:var(--app-amber); font-weight:600; margin-bottom:12px;">Atenção</p>
           <p class="body" style="font-size:32px; max-width:30ch;">Cada <span class="mono">run</span> cria um <span class="blue">container novo</span> — mesmo a partir da mesma imagem.</p>
-          <p class="small" style="margin-top:22px; font-size:27px; max-width:34ch;">Por isso <span class="mono">ls -a</span> costuma surpreender: containers parados continuam ali, ocupando espaço, até você removê-los.</p>
         </div>
       </div>
       <div class="grow"></div>
     </div>
   </section>
 
-  <!-- 06 — exec / cp / ciclo de vida -->
+  <!-- 07 — exec / cp / ciclo de vida -->
   <section data-label="exec, cp e ciclo de vida">
     <div class="slide">
       <div class="eyebrow"><span class="dot"></span>// entrar &amp; controlar</div>
@@ -353,8 +380,9 @@
             <pre><span class="cm"># abrir um shell dentro do container</span>
 <span class="pp">$</span> <span class="kw">docker</span> container exec <span class="fl">-it</span> <span class="st">web</span> bash
 
-<span class="cm"># copiar um arquivo do host para dentro</span>
+<span class="cm"># copiar um arquivo do host para dentro (ou o contrário)</span>
 <span class="pp">$</span> <span class="kw">docker</span> container cp <span class="st">./index.html</span> <span class="st">web:/usr/share/nginx/html</span>
+<span class="pp">$</span> <span class="kw">docker</span> container cp <span class="st">web:/usr/share/nginx/html/index.html</span> <span class="st">./index.html</span>
 
 <span class="cm"># ciclo de vida</span>
 <span class="pp">$</span> <span class="kw">docker</span> container stop <span class="st">web</span>
@@ -388,11 +416,7 @@
           </div>
         </div>
         <div style="flex:1.05;">
-          <div class="ph" style="height:440px;">
-            <div class="icn">IMG</div>
-            <div class="pl">screenshot · getting-started</div>
-            <div class="pd">Página do tutorial getting-started aberta em localhost após o run, com a barra lateral de passos. (trocar pelo print real)</div>
-          </div>
+          <img src="slide8-dockerGettingStarted.png" style="height:600px; border-radius:14px; border:1px solid var(--line); object-fit:cover;" alt="screenshot getting-started">
         </div>
       </div>
       <div class="grow"></div>
@@ -403,42 +427,17 @@
   <section data-label="Seção 02">
     <div class="slide divider">
       <div class="num">02</div>
-      <div class="sec-name">Mão na massa: Flask</div>
-      <div class="sec-sub">Subir uma aplicação real e editá-la ao vivo, sem rebuild.</div>
+      <div class="sec-name">Atividade prática com containers</div>
+      <div class="sec-sub">Subir uma aplicação web usando Flask</div>
       <div class="bar"></div>
     </div>
     <div class="foot">
       <div class="l"><span class="dot" style="width:9px;height:9px;background:var(--blue);border-radius:2px;display:inline-block;"></span> UFSM · Tecnologia da Informação</div>
-      <div>oficina-docker · aula 02</div>
+      <div>@DiegoRockenbach · oficina-docker · aula 02</div>
     </div>
   </section>
 
-  <!-- 09 — Flask com volume -->
-  <section data-label="Flask com volume">
-    <div class="slide">
-      <div class="eyebrow"><span class="dot"></span>// editar ao vivo</div>
-      <h2 class="title">Mapeando o código com <span class="mono">-v</span></h2>
-      <div class="grow"></div>
-      <div class="row items-center" style="gap:70px;">
-        <div style="flex:1.1;">
-          <div class="code lg" style="width:100%;">
-            <div class="bar"><span class="d" style="background:#ED6A5E;"></span><span class="d" style="background:#F5BF4F;"></span><span class="d" style="background:#62C554;"></span><span class="fname">terminal</span></div>
-            <pre><span class="cm"># -v monta a pasta do host dentro do container</span>
-<span class="pp">$</span> <span class="kw">docker</span> container run <span class="fl">-d -p</span> <span class="tg">5000:5000</span> \
-    <span class="fl">-v</span> <span class="st">$(pwd):/app</span> \
-    <span class="st">meu-flask</span></pre>
-          </div>
-        </div>
-        <div style="flex:0.8;">
-          <p class="body" style="font-size:32px; max-width:30ch;">Edite o arquivo no seu editor e <span class="blue">recarregue a página</span> — a mudança já está lá.</p>
-          <p class="small" style="margin-top:22px; font-size:27px; max-width:34ch;">O container não tem cópia própria do código: ele lê direto da sua pasta, graças ao volume montado com <span class="mono">-v</span>.</p>
-        </div>
-      </div>
-      <div class="grow"></div>
-    </div>
-  </section>
-
-  <!-- 10 — Ainda foi trabalhoso (verdict) -->
+  <!-- 09 — Ainda foi trabalhoso (verdict) -->
   <section data-label="Ainda foi trabalhoso">
     <div class="slide">
       <div class="eyebrow"><span class="dot"></span>// e agora?</div>
@@ -448,8 +447,8 @@
           <div class="verdict" style="font-size:150px;">Ainda<br><span class="blue">manual.</span></div>
         </div>
         <div style="flex:1; align-self:center;">
-          <p class="body" style="font-size:34px; max-width:32ch;">Configurar dependências e flags na mão, container a container, <b>cansa e dá margem a erro</b>.</p>
-          <p class="small" style="margin-top:24px; font-size:29px; max-width:36ch;">Dá para empacotar tudo isso de uma vez — criando a <span class="blue">nossa própria imagem</span>. Para isso, precisamos entender como elas funcionam por dentro.</p>
+          <p class="body" style="font-size:34px; max-width:32ch;">Instalar dependências e preparar tudo à mão, container a container, <b>cansa e dá margem a erro</b>.</p>
+          <p class="small" style="margin-top:24px; font-size:29px; max-width:36ch;">Dá para empacotar tudo isso de uma vez — criando a <span class="blue">nossa própria imagem</span>. Para isso, vamos antes entender como elas funcionam por dentro.</p>
         </div>
       </div>
     </div>
@@ -465,7 +464,7 @@
     </div>
     <div class="foot">
       <div class="l"><span class="dot" style="width:9px;height:9px;background:var(--blue);border-radius:2px;display:inline-block;"></span> UFSM · Tecnologia da Informação</div>
-      <div>oficina-docker · aula 02</div>
+      <div>@DiegoRockenbach · oficina-docker · aula 02</div>
     </div>
   </section>
 
@@ -495,40 +494,42 @@
     </div>
   </section>
 
-  <!-- 13 — Reuso de camadas -->
+  <!-- 13 — Reuso de camadas: matplotlib -->
   <section data-label="Reuso de camadas">
     <div class="slide">
-      <div class="eyebrow"><span class="dot"></span>// reuso</div>
-      <h2 class="title">Camadas são compartilhadas</h2>
+      <div class="eyebrow"><span class="dot"></span>// reuso na prática</div>
+      <h2 class="title">Camadas reaproveitadas</h2>
       <div class="grow"></div>
-      <div class="row" style="gap:60px; align-items:flex-end;">
-        <div style="flex:1;">
-          <div class="stack">
-            <div class="layer engine dk">app-a : container</div>
-            <div class="layer" style="background:var(--app-green-dim); color:#DDEFE2; border-color:var(--app-green);">COPY app_a/</div>
-            <div class="layer">RUN pip install flask</div>
-            <div class="layer base">python:3.12-slim</div>
-          </div>
-          <div class="stack-label">imagem <b>A</b></div>
+      <div class="row items-center" style="gap:72px;">
+        <div style="flex:1.3;">
+          <img src="slide13-camadasImgMatplotlib.png" style="width:100%; border-radius:14px; border:1px solid var(--line); object-fit:contain;" alt="camadas imagem matplotlib">
         </div>
-        <div style="flex:1;">
-          <div class="stack">
-            <div class="layer engine dk">app-b : container</div>
-            <div class="layer" style="background:var(--app-amber-dim); color:#F3E9D6; border-color:var(--app-amber);">COPY app_b/</div>
-            <div class="layer">RUN pip install flask</div>
-            <div class="layer base">python:3.12-slim</div>
+        <div style="flex:0.9;">
+          <div class="points">
+            <div class="point"><span class="k">→</span><span class="pt">Se você já tiver uma imagem <span class="mono blue">debian + python</span> no seu sistema, o Docker <b>não baixa essas camadas de novo</b>.</span></div>
+            <div class="point"><span class="k">→</span><span class="pt">Para montar a imagem do <span class="mono blue">matplotlib</span>, ele simplesmente <b>reutiliza</b> as camadas compartilhadas que já existem no disco.</span></div>
+            <div class="point"><span class="k">→</span><span class="pt">Apenas a camada exclusiva do matplotlib é adicionada — tornando o download <b>muito mais rápido</b>.</span></div>
           </div>
-          <div class="stack-label">imagem <b>B</b></div>
-        </div>
-        <div style="flex:0.7; align-self:center;">
-          <p class="small" style="font-size:28px; max-width:26ch;">As camadas <span class="blue">iguais</span> (base + flask) são <b style="color:var(--fg);">armazenadas uma única vez</b> e reaproveitadas. Baixar a 2ª imagem é quase instantâneo.</p>
         </div>
       </div>
       <div class="grow"></div>
     </div>
   </section>
 
-  <!-- 14 — ATIVIDADE -->
+  <!-- 14 — Camadas Docker 1 e 2 -->
+  <section data-label="Camadas Docker">
+    <div class="slide">
+      <div class="grow"></div>
+      <div style="display:flex; gap:48px; align-items:flex-start; width:100%;">
+        <img src="slide14-camadasImgDocker1.png" style="flex:1; width:0; max-height:780px; border-radius:14px; border:1px solid var(--line); object-fit:contain;" alt="camadas docker 1">
+        <img src="slide14-camadasImgDocker2.png" style="flex:1; width:0; max-height:780px; border-radius:14px; border:1px solid var(--line); object-fit:contain;" alt="camadas docker 2">
+      </div>
+      <p class="mono" style="font-size:22px; color:var(--faint); margin-top:20px; align-self:center;">Fonte: <a href="https://docs.docker.com/get-started/docker-concepts/building-images/understanding-image-layers/" target="_blank" style="text-decoration:none; color:inherit;">https://docs.docker.com/get-started/docker-concepts/building-images/understanding-image-layers/</a></p>
+      <div class="grow"></div>
+    </div>
+  </section>
+
+  <!-- 15 — ATIVIDADE -->
   <section data-label="Atividade">
     <div class="slide activity">
       <div class="act-tag">▸ ATIVIDADE · AULA 2</div>
@@ -543,7 +544,7 @@
     </div>
     <div class="foot">
       <div class="l"><span class="dot" style="width:9px;height:9px;background:var(--blue);border-radius:2px;display:inline-block;"></span> UFSM · Tecnologia da Informação</div>
-      <div>oficina-docker · aula 02</div>
+      <div>@DiegoRockenbach · oficina-docker · aula 02</div>
     </div>
   </section>
 
