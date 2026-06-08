@@ -570,8 +570,8 @@ Kernel: <span class="st">5.15.x-microsoft</span>
   <section data-label="Seção 03">
     <div class="slide divider">
       <div class="num">03</div>
-      <div class="sec-name">Mãos à obra</div>
-      <div class="sec-sub">Instalação, Docker Desktop e por que vamos viver no terminal.</div>
+      <div class="sec-name">Instalação</div>
+      <div class="sec-sub">Instalando Docker Desktop no seu PC.</div>
       <div class="bar"></div>
     </div>
     <div class="foot">
@@ -619,7 +619,7 @@ Kernel: <span class="st">5.15.x-microsoft</span>
     <div class="slide divider">
       <div class="num">04</div>
       <div class="sec-name">Imagens &amp; Containers</div>
-      <div class="sec-sub">Tags, Docker Hub e o Dockerfile — a receita por trás de tudo.</div>
+      <div class="sec-sub">Sintaxe da coisa + Docker Hub.</div>
       <div class="bar"></div>
     </div>
     <div class="foot">
@@ -665,7 +665,7 @@ Kernel: <span class="st">5.15.x-microsoft</span>
             <pre><span class="cm"># imagem &lt;nome&gt;:&lt;tag&gt;</span>
 <span class="pp">$</span> <span class="kw">docker</span> pull <span class="st">nginx</span>:<span class="tg">1.27-alpine</span>
 <span class="pp">$</span> <span class="kw">docker</span> pull <span class="st">nginx</span>:<span class="tg">1.31-trixie-perl</span>
-<span class="pp">$</span> <span class="kw">docker</span> pull <span class="st">postgres</span>:<span class="tg">16</span></pre>
+<span class="pp">$</span> <span class="kw">docker</span> pull <span class="st">postgres</span>:<span class="tg">latest</span></pre>
           </div>
         </div>
         <div style="flex:0.85;">
@@ -677,28 +677,7 @@ Kernel: <span class="st">5.15.x-microsoft</span>
     </div>
   </section>
 
-  <!-- 20 — O perigo do latest -->
-  <section data-label="O perigo do latest">
-    <div class="slide">
-      <div class="eyebrow"><span class="dot"></span>// armadilha</div>
-      <h2 class="title">O perigo do <span class="mono">:latest</span></h2>
-      <div class="grow"></div>
-      <div class="row items-center" style="gap:80px;">
-        <div style="flex:1;">
-          <p class="body" style="font-size:38px; max-width:32ch;"><span class="mono blue">latest</span> não garante "o mais recente". É só a <b>tag padrão</b> quando você não especifica nenhuma.</p>
-        </div>
-        <div style="flex:1; align-self:center;">
-          <div class="points">
-            <div class="point"><span class="k">↳</span><span class="pt">O que <span class="mono">latest</span> aponta pode <b>mudar embaixo de você</b> sem aviso.</span></div>
-            <div class="point"><span class="k">↳</span><span class="pt">Resultado: builds que <b>funcionavam ontem</b> podem quebrar hoje, sem você ter mudado nada.</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="grow"></div>
-    </div>
-  </section>
-
-  <!-- 21 — uma imagem muitos containers (code) -->
+  <!-- 20 — uma imagem muitos containers (code) -->
   <section data-label="Uma imagem, muitos containers">
     <div class="slide">
       <div class="eyebrow"><span class="dot"></span>// relações</div>
@@ -727,7 +706,7 @@ Kernel: <span class="st">5.15.x-microsoft</span>
     </div>
   </section>
 
-  <!-- 22 — Docker Hub -->
+  <!-- 21 — Docker Hub -->
   <section data-label="Docker Hub">
     <div class="slide">
       <div class="eyebrow"><span class="dot"></span>// de onde vêm as imagens</div>
@@ -748,7 +727,7 @@ Kernel: <span class="st">5.15.x-microsoft</span>
     </div>
   </section>
 
-  <!-- 22b — Trusted Content: tipos de selos -->
+  <!-- 21b — Trusted Content: tipos de selos -->
   <section data-label="Trusted Content">
     <div class="slide">
       <div class="eyebrow"><span class="dot"></span>// confiança em níveis</div>
@@ -782,33 +761,7 @@ Kernel: <span class="st">5.15.x-microsoft</span>
     </div>
   </section>
 
-  <!-- 23 — Dockerfile (code) -->
-  <section data-label="Dockerfile">
-    <div class="slide">
-      <div class="eyebrow"><span class="dot"></span>// a receita</div>
-      <h2 class="title">Dockerfile: a receita da imagem</h2>
-      <div class="grow"></div>
-      <div class="row items-center" style="gap:70px;">
-        <div style="flex:1;">
-          <div class="code lg" style="width:100%;">
-            <div class="bar"><span class="d" style="background:#ED6A5E;"></span><span class="d" style="background:#F5BF4F;"></span><span class="d" style="background:#62C554;"></span><span class="fname">Dockerfile</span></div>
-            <pre><span class="kw">FROM</span> <span class="st">node:20-alpine</span>
-<span class="kw">WORKDIR</span> /app
-<span class="kw">COPY</span> . .
-<span class="kw">RUN</span> npm install
-<span class="kw">CMD</span> [<span class="tg">"node"</span>, <span class="tg">"server.js"</span>]</pre>
-          </div>
-        </div>
-        <div style="flex:0.85;">
-          <p class="body" style="font-size:34px; max-width:30ch;">É o <span class="blue">manual de instruções</span> que o Docker segue para construir uma imagem.</p>
-          <p class="small" style="margin-top:22px; font-size:28px; max-width:34ch;">Como é texto aberto, dá para auditar exatamente como qualquer imagem foi feita — e alterar se quiser. Por isso até imagens não-oficiais costumam ser rastreáveis e seguras.</p>
-        </div>
-      </div>
-      <div class="grow"></div>
-    </div>
-  </section>
-
-  <!-- 24 — Recap -->
+  <!-- 22 — Recap -->
   <section data-label="Recapitulando">
     <div class="slide">
       <div class="eyebrow"><span class="dot"></span>// fechamento</div>
@@ -818,7 +771,7 @@ Kernel: <span class="st">5.15.x-microsoft</span>
         <div class="road-item"><span class="rn">↳</span><span class="rt">VM = SO inteiro por app</span><span class="rd">isolamento real, mas pesado e lento</span></div>
         <div class="road-item"><span class="rn">↳</span><span class="rt">Container = kernel compartilhado</span><span class="rd">leve, rápido e igual em todo lugar</span></div>
         <div class="road-item"><span class="rn">↳</span><span class="rt">Imagem : tag → container</span><span class="rd">molde imutável que gera instâncias</span></div>
-        <div class="road-item"><span class="rn">↳</span><span class="rt">DockerHub + Dockerfile</span><span class="rd">de onde vêm as imagens e como são feitas</span></div>
+        <div class="road-item"><span class="rn">↳</span><span class="rt">DockerHub</span><span class="rd">de onde vêm as imagens Docker</span></div>
       </div>
       <div class="grow"></div>
       <p class="small mono" style="font-size:28px; color:var(--blue-2);">Próxima aula → comandos docker na prática: exercícios com containers e imagens.</p>

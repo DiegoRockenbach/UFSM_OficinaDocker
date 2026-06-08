@@ -367,7 +367,33 @@ REPOSITORY   TAG   SIZE
     </div>
   </section>
 
-  <!-- 07 — push / pull -->
+    <!-- 07 — Dockerfile (code) -->
+  <section data-label="Dockerfile">
+    <div class="slide">
+      <div class="eyebrow"><span class="dot"></span>// a receita</div>
+      <h2 class="title">Dockerfile: a receita da imagem</h2>
+      <div class="grow"></div>
+      <div class="row items-center" style="gap:70px;">
+        <div style="flex:1;">
+          <div class="code lg" style="width:100%;">
+            <div class="bar"><span class="d" style="background:#ED6A5E;"></span><span class="d" style="background:#F5BF4F;"></span><span class="d" style="background:#62C554;"></span><span class="fname">Dockerfile</span></div>
+            <pre><span class="kw">FROM</span> <span class="st">node:20-alpine</span>
+<span class="kw">WORKDIR</span> /app
+<span class="kw">COPY</span> . .
+<span class="kw">RUN</span> npm install
+<span class="kw">CMD</span> [<span class="tg">"node"</span>, <span class="tg">"server.js"</span>]</pre>
+          </div>
+        </div>
+        <div style="flex:0.85;">
+          <p class="body" style="font-size:34px; max-width:30ch;">É o <span class="blue">manual de instruções</span> que o Docker segue para construir uma imagem.</p>
+          <p class="small" style="margin-top:22px; font-size:28px; max-width:34ch;">Como é texto aberto, dá para auditar exatamente como qualquer imagem foi feita — e alterar se quiser. Por isso até imagens não-oficiais costumam ser rastreáveis e seguras.</p>
+        </div>
+      </div>
+      <div class="grow"></div>
+    </div>
+  </section>
+
+  <!-- 08 — push / pull -->
   <section data-label="push e pull">
     <div class="slide">
       <div class="eyebrow"><span class="dot"></span>// distribuir</div>
@@ -398,7 +424,7 @@ REPOSITORY   TAG   SIZE
     </div>
   </section>
 
-  <!-- 08 — docker image tag -->
+  <!-- 09 — docker image tag -->
   <section data-label="docker image tag">
     <div class="slide">
       <div class="eyebrow"><span class="dot"></span>// ponteiros, não cópias</div>
@@ -428,7 +454,7 @@ REPOSITORY   TAG   SIZE
     </div>
   </section>
 
-  <!-- 09 — DIVIDER 02 -->
+  <!-- 10 — DIVIDER 02 -->
   <section data-label="Seção 02">
     <div class="slide divider">
       <div class="num">02</div>
@@ -442,7 +468,7 @@ REPOSITORY   TAG   SIZE
     </div>
   </section>
 
-  <!-- 10 — Dentro vs fora -->
+  <!-- 11 — Dentro vs fora -->
   <section data-label="Dentro vs fora">
     <div class="slide">
       <div class="eyebrow"><span class="dot"></span>// a diferença</div>
@@ -469,7 +495,7 @@ REPOSITORY   TAG   SIZE
     </div>
   </section>
 
-  <!-- 11 — ATIVIDADE -->
+  <!-- 12 — ATIVIDADE -->
   <section data-label="Atividade">
     <div class="slide activity">
       <div class="act-tag">▸ ATIVIDADE · AULA 3</div>

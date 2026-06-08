@@ -274,7 +274,7 @@
         <div class="road-item"><span class="rn">01</span><span class="rt">Principais comandos para trabalhar com containers</span><span class="rd">run, ls, exec, rm</span></div>
         <div class="road-item"><span class="rn">02</span><span class="rt">Atividade prática: Flask</span><span class="rd">subir uma app e editá-la ao vivo via volume</span></div>
         <div class="road-item"><span class="rn">03</span><span class="rt">Como funcionam as imagens</span><span class="rd">camadas de imagem e reuso</span></div>
-        <div class="road-item"><span class="rn">04</span><span class="rt">AtividadePLACEHOLDER</span><span class="rd">PLACEHOLDER</span></div>
+        <div class="road-item"><span class="rn">04</span><span class="rt">Atividade para entrega</span><span class="rd">PLACEHOLDER</span></div>
       </div>
       <div class="grow"></div>
     </div>
@@ -349,7 +349,7 @@
           <div class="code lg" style="width:100%;">
             <div class="bar"><span class="d" style="background:#ED6A5E;"></span><span class="d" style="background:#F5BF4F;"></span><span class="d" style="background:#62C554;"></span><span class="fname">terminal</span></div>
             <pre><span class="cm"># cria e roda um container em segundo plano</span>
-<span class="pp">$</span> <span class="kw">docker</span> container run <span class="fl">-d --name</span> <span class="st">web</span> <span class="st">nginx:1.27</span>
+<span class="pp">$</span> <span class="kw">docker</span> container run <span class="fl">--name</span> <span class="st">web</span> <span class="st">nginx:1.27</span>
 
 <span class="cm"># só os que estão rodando</span>
 <span class="pp">$</span> <span class="kw">docker</span> container ls
@@ -409,6 +409,7 @@
       <div class="row" style="gap:56px; align-items:stretch;">
         <div style="flex:0.95; display:flex; flex-direction:column; justify-content:center;">
           <p class="body" style="font-size:32px; max-width:30ch;">A imagem oficial de boas-vindas do Docker — um tutorial que roda dentro de um container.</p>
+          <p style="font-size:25px; margin-top:10px; margin-bottom:0;"><a href="https://hub.docker.com/r/docker/getting-started" target="_blank" style="color:#7997d2; text-decoration:none;">https://hub.docker.com/r/docker/getting-started</a></p>
           <div class="code lg" style="width:100%; margin-top:28px;">
             <div class="bar"><span class="d" style="background:#ED6A5E;"></span><span class="d" style="background:#F5BF4F;"></span><span class="d" style="background:#62C554;"></span><span class="fname">terminal</span></div>
             <pre><span class="pp">$</span> <span class="kw">docker</span> container run <span class="fl">-d -p</span> <span class="tg">80:80</span> \
@@ -538,8 +539,8 @@
       <div class="grow"></div>
       <div class="act-box">
         <div class="al">// tarefa</div>
-        <<p>Suba o container <span class="mono blue">docker/getting-started:vscode</span>, depois rode a app <b>Flask</b> mapeando o código com <span class="mono">-v</span> e faça uma alteração visível na página enquanto o container está no ar.</p>
-        <div class="deliver"><span class="pin"></span> entregar: print do navegador + o comando <span class="mono">run</span> usado</div>>
+        <p>Suba o container <a href="https://hub.docker.com/r/bharathshetty4/supermario" target="_blank" style="text-decoration:none;"><span class="mono blue">bharathshetty4/supermario</span></a> e jogue o jogo.
+        <div class="deliver"><span class="pin"></span> entregar: print do navegador com o jogo rodando + o retorno do comando de listagem de containers (com o container do jogo em execução).</div>
       </div>
       <div class="grow"></div>
     </div>
